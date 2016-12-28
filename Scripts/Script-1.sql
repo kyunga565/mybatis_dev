@@ -27,5 +27,5 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select * from students;
  select * from tutors;
  select * from courses;
- select * from course_enrollment;
  select * from addresses;
+ select * from course_enrollment;
