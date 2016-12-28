@@ -3,18 +3,18 @@ package kr.or.dgit.bigdata.mybatis_dev.dto;
 import java.util.Date;
 
 public class Student {
-	private int stdId;
+	private int studId;
 	private String name;
 	private String email;
 	private PhoneNumber phone;
 	private Date dob;
 	
 	
-	public int getStdId() {
-		return stdId;
+	public int getStudId() {
+		return studId;
 	}
-	public void setStdId(int stdId) {
-		this.stdId = stdId;
+	public void setStudId(int studId) {
+		this.studId = studId;
 	}
 	public String getName() {
 		return name;
@@ -31,8 +31,8 @@ public class Student {
 	public PhoneNumber getPhonenumber() {
 		return phone;
 	}
-	public void setPhonenumber(PhoneNumber phonenumber) {
-		this.phone = phonenumber;
+	public void setPhonenumber(PhoneNumber phone) {
+		this.phone = phone;
 	}
 	public Date getDob() {
 		return dob;
@@ -42,7 +42,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return String.format("Student [stdId=%s, name=%s, email=%s, phonenumber=%s, dob=%s]", stdId, name, email,
+		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s]", studId, name, email,
 				phone, dob);
 	}
 	

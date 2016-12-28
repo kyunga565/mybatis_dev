@@ -11,7 +11,7 @@ public class StudentService {
 	/**
 	* Logger for this class
 	*/
-	private static final Logger logger = Logger.getLogger(StudentService.class); //로거
+	private static final Logger logger = Logger.getLogger(StudentService.class); //declare logger
 
 	private final static StudentService instance =  new StudentService();
 
@@ -20,7 +20,7 @@ public class StudentService {
 	}
 	private StudentService(){}
 	
-	public Student findStudentById(int studId){ //로그디스메소드
+	public Student findStudentById(int studId){ //log this method
 		if (logger.isDebugEnabled()) {
 			logger.debug("findStudentById(int) - start");
 		}
@@ -33,5 +33,19 @@ public class StudentService {
 			sqlSession.close();
 		}
 		
+	}
+	public int insertStudent(Student std){
+		if (logger.isDebugEnabled()) {
+			logger.debug("insertStudent(Student) - start");
+		}
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.insertStudent(std);
+			sqlSession.commit();
+			return res;
+		}finally{
+			sqlSession.close();
+		}
 	}
 }

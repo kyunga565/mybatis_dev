@@ -31,5 +31,5 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select * from course_enrollment;
  
  select stud_id,name,email,dob from students where stud_id = 1;
- 
+ insert into students(stud_id,name,email,phone,dob) values (3,'강보미','kbm@test.com','010-0000-0000','1995-01-05');
  
