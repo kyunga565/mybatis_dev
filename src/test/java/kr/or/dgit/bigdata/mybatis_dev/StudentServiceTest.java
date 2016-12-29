@@ -83,4 +83,9 @@ public class StudentServiceTest {
 		
 		Assert.assertNotNull(selectAll);
 	}
+	@Test
+	public void testselectStudentWithAddress(){
+		Student std = studentservice.selectStudentWithAddress(1);
+		Assert.assertNotNull(std);
+	}
 }

@@ -8,7 +8,7 @@ public class Student {
 	private String email;
 	private PhoneNumber phone;
 	private Date dob;
-	private Address addr_id;
+	private Address address;
 	
 	public int getStudId() {
 		return studId;
@@ -41,15 +41,15 @@ public class Student {
 		this.dob = dob;
 	}
 	public Address getAddress() {
-		return addr_id;
+		return address;
 	}
 	public void setAddress(Address addr_id) {
-		this.addr_id = addr_id;
+		this.address = addr_id;
 	}
 	@Override
 	public String toString() {
 		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s, addr_id=%s]", studId, name,
-				email, phone, dob, addr_id);
+				email, phone, dob, address);
 	}
 	
 }

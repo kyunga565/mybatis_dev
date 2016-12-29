@@ -6,7 +6,8 @@ public class Address {
 	private String city;
 	private String state;
 	private String zip;
-	private String contry;
+	private String country;
+	
 	public int getAddrId() {
 		return addrId;
 	}
@@ -38,13 +39,13 @@ public class Address {
 		this.zip = zip;
 	}
 	public String getContry() {
-		return contry;
+		return country;
 	}
-	public void setContry(String contry) {
-		this.contry = contry;
+	public void setContry(String country) {
+		this.country = country;
 	}
 	@Override
 	public String toString() {
-		return String.format("Address %s, %s, %s, %s, %s,%s", addrId, street, city, state, zip, contry);
+		return String.format("Address %s, %s, %s, %s, %s,%s", addrId, street, city, state, zip, country);
 	}
 }

@@ -11,4 +11,7 @@ public interface StudentMapper {
 	int updateStudent(Student student);
 	int deleteStudent(int idx);
 	List<Student> findStudentByAll();
+	
+	/////////join////////
+	Student selectStudentWithAddress(int id);
 }

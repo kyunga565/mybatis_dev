@@ -36,4 +36,6 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  delete from students where stud_id = 8;
  select stud_id,name,email,phone,dob from students;
  
- 
+ select stud_id,name,email,phone,a.addr_id,street,city, state,zip,country 
+ from students s 
+ inner join addresses a on s.addr_id=a.addr_id where stud_id =1; 
