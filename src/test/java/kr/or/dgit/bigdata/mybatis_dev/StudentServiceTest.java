@@ -4,6 +4,8 @@ package kr.or.dgit.bigdata.mybatis_dev;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -48,7 +50,7 @@ public class StudentServiceTest {
 		int result = studentservice.insertStudent(std);
 		Assert.assertSame(1, result);
 	}
-	@Test
+/*	@Test
 	public void testinsertAutoInc(){
 		Student std = new Student();
 		std.setName("이유진2");
@@ -58,7 +60,7 @@ public class StudentServiceTest {
 		
 		int result = studentservice.insertStudentAutoInc(std);
 		Assert.assertSame(1, result);
-	}
+	}*/
 	@Test
 	public void testupdateStudent(){
 		Student std = new Student();
@@ -73,13 +75,28 @@ public class StudentServiceTest {
 	}
 	@Test
 	public void testdeleteStudent(){
-		int deleteStudent = studentservice.deleteStudent(6);
+		int deleteStudent = studentservice.deleteStudent(13);
 		
 		Assert.assertSame(1, deleteStudent);
 	}
 	@Test
 	public void testfindStudentByAll(){
 		List<Student> selectAll = studentservice.findStudentByAll();
+		
+		Assert.assertNotNull(selectAll);
+	}
+	
+	@Test
+	public void testfindStudentByIdForMap(){
+		Map<String,Object> stdmap = studentservice.findStudentByIdForMap(1);
+		Assert.assertNotNull(stdmap);
+		for(Entry<String,Object> e : stdmap.entrySet()){
+			System.out.printf("%s -> %s%n", e.getKey(),e.getValue());
+		}
+	}
+	@Test
+	public void testfindStudentByAllForMap(){
+		List<Map<String,Object>> selectAll = studentservice.findStudentByAllForMap(1);
 		
 		Assert.assertNotNull(selectAll);
 	}

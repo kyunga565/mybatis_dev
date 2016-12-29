@@ -33,7 +33,7 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select stud_id,name,email,dob from students where stud_id = 1;
  insert into students(stud_id,name,email,phone,dob) values (6,'강보미2','kbm@test.com','010-0000-0000','1995-01-05');
  update students set name='박경아',email='pka@test.com',phone='010-8888-8888',dob='2015-05-05' where stud_id = 6;
- delete from students where stud_id = 8;
+ delete from students where stud_id = 12;
  select stud_id,name,email,phone,dob from students;
  
  
