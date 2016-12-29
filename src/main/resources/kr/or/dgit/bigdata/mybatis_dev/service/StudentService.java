@@ -1,5 +1,7 @@
 package kr.or.dgit.bigdata.mybatis_dev.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
@@ -41,11 +43,71 @@ public class StudentService {
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		try{
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			//insert ------
 			int res = studentMapper.insertStudent(std);
+			sqlSession.commit();
+			return res;
+			// ------------
+		}finally{
+			sqlSession.close();
+		}
+	}
+	
+	public int insertStudentAutoInc(Student std){
+		if (logger.isDebugEnabled()) {
+			logger.debug("insertStudent(Student) - start");
+		}
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.insertStudentAutoInc(std);
 			sqlSession.commit();
 			return res;
 		}finally{
 			sqlSession.close();
 		}
+	}
+	
+	public int updateStudent(Student std){
+		if (logger.isDebugEnabled()) {
+			logger.debug("insertStudentInc(Student) - start");
+		}
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.updateStudent(std);
+			sqlSession.commit();
+			return res;
+		}finally{
+			sqlSession.close();
+		}
+	}
+	public int deleteStudent(int idx){
+		if (logger.isDebugEnabled()) {
+			logger.debug("deleteStudent(Student) - start");
+		}
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.deleteStudent(idx);
+			sqlSession.commit();
+			return res;
+		}finally{
+			sqlSession.close();
+		}
+	}
+	public List<Student> findStudentByAll(){ //log this method
+		if (logger.isDebugEnabled()) {
+			logger.debug("findStudentById(int) - start");
+		}
+		
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			return studentMapper.findStudentByAll();
+		}finally{
+			sqlSession.close();
+		}
+		
 	}
 }
