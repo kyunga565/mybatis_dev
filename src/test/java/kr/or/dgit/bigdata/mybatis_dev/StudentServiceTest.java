@@ -108,4 +108,17 @@ public class StudentServiceTest {
 		Student std = studentservice.selectStudentWithAddressResult(1);
 		Assert.assertNotNull(std);
 	}
+	
+	@Test
+	public void testupdateSetStudent(){
+		Student std = new Student();
+		std.setStudId(1);
+		std.setEmail("tessssst@test.com");
+		std.setPhonenumber(new PhoneNumber("123-4567-8910"));
+		std.setDob(new Date());
+		int result = studentservice.updateSetStudent(std);
+		System.out.printf("%s %d%n",std,result);
+		Assert.assertSame(1, result);
+		
+	}
 }

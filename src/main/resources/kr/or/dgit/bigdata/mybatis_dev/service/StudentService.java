@@ -71,12 +71,27 @@ public class StudentService {
 	
 	public int updateStudent(Student std){
 		if (logger.isDebugEnabled()) {
-			logger.debug("insertStudentInc(Student) - start");
+			logger.debug("updateStudentInc(Student) - start");
 		}
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		try{
 			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 			int res = studentMapper.updateStudent(std);
+			sqlSession.commit();
+			return res;
+		}finally{
+			sqlSession.close();
+		}
+	}
+	
+	public int updateSetStudent(Student std){
+		if (logger.isDebugEnabled()) {
+			logger.debug("updateSetStudentInc(Student) - start");
+		}
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.updateSetStudent(std);
 			sqlSession.commit();
 			return res;
 		}finally{
