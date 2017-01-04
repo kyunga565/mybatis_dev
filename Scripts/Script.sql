@@ -161,3 +161,6 @@ ALTER TABLE mybatis_dev.course_enrollment
 		REFERENCES mybatis_dev.students ( -- 학생
 			stud_id -- 학번
 		);
+		
+		use zipcode;
+		SELECT zipcode,sido,sigungu,doro,building1,building2 from zipcode;

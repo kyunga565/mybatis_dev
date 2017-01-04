@@ -28,7 +28,7 @@ public class StudentServiceTest {
 		studentservice = null;
 	}
 
-	@Test
+	/*@Test
 	public void testfindStudentById() {
 		Student student = studentservice.findStudentById(1);
 		Assert.assertNotNull(student);
@@ -41,10 +41,10 @@ public class StudentServiceTest {
 		std.setEmail("lyj@test.com");
 		std.setPhonenumber(new PhoneNumber("010-2222-2222"));
 		
-/*		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance();
 		cal.clear();
 		cal.set(1980,01,05);
-		std.setDob(cal.getTime());*/
+		std.setDob(cal.getTime());
 		
 		std.setDob(new Date());
 		int result = studentservice.insertStudent(std);
@@ -61,7 +61,7 @@ public class StudentServiceTest {
 		int result = studentservice.insertStudentAutoInc(std);
 		Assert.assertSame(1, result);
 	}*/
-	@Test
+	/*@Test
 	public void testupdateStudent(){
 		Student std = new Student();
 		std.setStudId(4);
@@ -101,7 +101,11 @@ public class StudentServiceTest {
 	@Test
 	public void testfindStudentByAllForMap(){
 		List<Map<String,Object>> selectAll = studentservice.findStudentByAllForMap(1);
-		
 		Assert.assertNotNull(selectAll);
+	}*/
+	@Test
+	public void testselectStudentWithAddressResult(){
+		Student std = studentservice.selectStudentWithAddressResult(1);
+		Assert.assertNotNull(std);
 	}
 }
