@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.bigdata.mybatis_dev.dto.Gender;
 import kr.or.dgit.bigdata.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.bigdata.mybatis_dev.dto.Student;
 import kr.or.dgit.bigdata.mybatis_dev.service.StudentService;
@@ -50,7 +51,7 @@ public class StudentServiceTest {
 		int result = studentservice.insertStudent(std);
 		Assert.assertSame(1, result);
 	}
-/*	@Test
+	@Test
 	public void testinsertAutoInc(){
 		Student std = new Student();
 		std.setName("이유진2");
@@ -60,8 +61,8 @@ public class StudentServiceTest {
 		
 		int result = studentservice.insertStudentAutoInc(std);
 		Assert.assertSame(1, result);
-	}*/
-	/*@Test
+	}
+	@Test
 	public void testupdateStudent(){
 		Student std = new Student();
 		std.setStudId(4);
@@ -120,5 +121,18 @@ public class StudentServiceTest {
 		System.out.printf("%s %d%n",std,result);
 		Assert.assertSame(1, result);
 		
+	}
+	@Test
+	public void testinsertEnumStudent(){
+		Student std = new Student();
+		std.setName("이유진222");
+		std.setEmail("lyj@test.com");
+		std.setPhonenumber(new PhoneNumber("010-2222-2222"));
+		std.setDob(new Date());
+		std.setGender(Gender.FEMAIL);
+		
+		int result = studentservice.insertEnumStudent(std);
+		System.out.printf("%s %d%n",std,result);
+		Assert.assertSame(1, result);
 	}
 }

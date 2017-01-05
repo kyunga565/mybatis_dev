@@ -36,6 +36,12 @@
 		(#{studId},#{name},#{email},#{phone},#{dob})
 	</insert>
 
+	<insert id="insertEnumStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="studId">
+		insert into
+		students(stud_id,name,email,phone,dob,gender) values
+		(#{studId},#{name},#{email},#{phone},#{dob},#{gender})
+	</insert>
+
 	<insert id="insertStudentAutoInc" parameterType="Student"
 		useGeneratedKeys="true" keyProperty="studId">
 		insert into

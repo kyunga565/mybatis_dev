@@ -33,7 +33,7 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select stud_id,name,email,dob from students where stud_id = 1;
  insert into students(stud_id,name,email,phone,dob) values (6,'강보미2','kbm@test.com','010-0000-0000','1995-01-05');
  update students set name='박경아',email='pka@test.com',phone='010-8888-8888',dob='2015-05-05' where stud_id = 6;
- delete from students where stud_id = 12;
+ delete from students where stud_id = 19;
  select stud_id,name,email,phone,dob from students;
  
  select stud_id,name,email,phone,a.addr_id,street,city, state,zip,country 
@@ -54,4 +54,12 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  
  select * from courses where end_date >= now();
  
- 
+ create table user_pics(
+ 	id int(11) not null auto_increment,
+ 	name varchar(50) default null,
+ 	pic blob, bio longtext, 
+ 	primary key(id)
+ );
+ select * from user_pics;
+insert into user_pics(name,pic,bio) values ("qq","e","d");
+delete from user_pics where id=6;

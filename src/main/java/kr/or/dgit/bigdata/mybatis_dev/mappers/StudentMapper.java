@@ -21,4 +21,6 @@ public interface StudentMapper {
 	/////////join////////
 	Student selectStudentWithAddress(int id);//한번할경우
 	Student selectStudentWithAddressResult(int id);//추천
+	int insertEnumStudent(Student student);
+
 }
